@@ -126,13 +126,15 @@ int main() {
 
             if (dir == 'H' && canPlaceHorizontally(row, col, word)) {
                 placeWordHorizontally(row, col, word);
-                push((Move){row, col, dir, ""});
-                strcpy(stack[top].word, word);
+                Move newMove = {row, col, dir, ""};
+                strcpy(newMove.word, word);
+                push(newMove);
                 printf("\nWord placed successfully!\n");
             } else if (dir == 'V' && canPlaceVertically(row, col, word)) {
                 placeWordVertically(row, col, word);
-                push((Move){row, col, dir, ""});
-                strcpy(stack[top].word, word);
+                Move newMove = {row, col, dir, ""};
+                strcpy(newMove.word, word);
+                push(newMove);
                 printf("\nWord placed successfully!\n");
             } else {
                 printf("\nCannot place word at given position!\n");
